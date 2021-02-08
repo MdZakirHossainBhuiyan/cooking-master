@@ -7,7 +7,7 @@ function setPlaceholder() {
     fetch('https://www.themealdb.com/api/json/v1/1/random.php')
         .then(response => response.json())
         .then(data => {
-            document.getElementById('input-meal').placeholder = "Search " + data.meals[0].strMeal + " Meal";
+            document.getElementById('input-meal').placeholder = "Search Meal: " + data.meals[0].strMeal;
         })
 }
 
