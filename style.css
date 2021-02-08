@@ -1,0 +1,129 @@
+body{
+    background-color: rgb(233, 231, 230);
+}
+
+.top-area{
+    margin-top: 30px;
+    color: black;
+    font-family: cursive;
+}
+
+.nav-content h3{
+    color: tomato;
+    font-weight: 700;
+}
+
+.top-area ul{
+    list-style-type: none;
+    overflow: hidden;
+    padding-left: 600px;
+}
+
+.top-area li {
+    float: left;
+}
+  
+.top-area li a {
+    display: block;
+    color: black;
+    text-align: right;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.input-text{
+    width: 400px;
+}
+
+.meal-title{
+    font-size: 20px;
+    text-align: center;
+    font-family: cursive;
+}
+
+#meal-info{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 50px 120px 20px 150px;
+}
+
+.meal-name{
+    background-color: honeydew;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px;
+    width: 210px;
+    box-shadow: 5px 5px 10px gray;
+}
+
+.meal-name img, .display-area img{
+    width: 200px;
+    height: 190px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.error-style{
+    background-color: white;
+    width: 250px;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px gray;
+    margin-left: 550px;
+    margin-top: 50px;
+    display: none;
+}
+
+.error-style img{
+    width: 200px;
+    height: 210px;
+    margin-left: 22px;
+}
+
+.error-style h3{
+    color: black;
+    font-family: cursive;
+    text-align: center;
+}
+
+.input-area{
+    margin-top: 20px;
+}
+
+.display-area{
+    width: 450px;
+    height: 300px;
+    margin-left: 420px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: rgb(52, 98, 199);
+    display: none;
+}
+
+.display-area ul{
+    overflow: hidden;
+}
+
+.display-area li{
+    color: rgb(15, 14, 15);
+    display: inline-block;
+}
+
+.display-area img{
+    padding: 10px;
+    border-radius: 10px;
+    float: left;
+}
+
+.display-area ul{
+    list-style-type: circle;
+    float: left;
+}
+
+.remove-btn{
+    margin-top: 20px;
+    width: 100px;
+    height: 30px;
+    padding: 5px;
+}
+

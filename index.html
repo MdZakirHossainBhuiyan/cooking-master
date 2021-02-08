@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooking Master</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="container top-area">
+        <div class="nav-content d-flex align-items-center">
+            <h3>Cooking Master</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Recipes</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="input-area d-flex justify-content-center">
+            <input id="input-meal" type="text" name="mealName" id="" class="input-text form-control" value="" placeholder="">
+            <button id="submit-btn" type="submit" class="btn btn-primary">Search</button>
+        </div>
+
+        <div id="meal-info" class="mealInfo">
+            
+        </div>
+
+        <div id="error-area" class="error-style">
+            <img src="sad.png" alt="">
+            <h3 id="error-text">No item found for</h3>
+        </div>
+
+        <div id="display-details" class="display-area">
+            
+        </div>
+
+        <!-- <h3 id="error-text"></h3> -->
+        <script src="dataManage.js"></script>
+    </main>
+</body>
+</html>
