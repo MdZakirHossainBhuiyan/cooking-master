@@ -16,21 +16,21 @@ setInterval(() => {
 }, 2000);
 
 const getMealData = inputValue => {
-    if(inputValue.length > 1){
+    if (inputValue.length > 1) {
         const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${inputValue}`;
         getData(url);
     }
-    else if(inputValue.length === 1){
+    else if (inputValue.length === 1) {
         const url = `https://www.themealdb.com/api/json/v1/1/search.php?f=${inputValue}`;
         getData(url);
     }
 }
 
 const getData = url => {
-        fetch(url)
-            .then(response => response.json())
-            .then(data => makeDisplay(data))
-    }
+    fetch(url)
+        .then(response => response.json())
+        .then(data => makeDisplay(data))
+}
 
 const makeDisplay = data => {
 
@@ -50,7 +50,7 @@ const makeDisplay = data => {
 
             document.getElementById('input-meal').value = "";
         });
-        
+
         const errorArea = document.getElementById('error-area');
         errorArea.style.display = "none";
     }
@@ -72,12 +72,12 @@ const makeDisplay = data => {
 
     const showDetails = (data, selectedMeal) => {
         const parentDiv = document.getElementById('display-details');
-        
-        for (let i = 0; i < data.meals.length; i++) {
-            if (data.meals[i].strMeal === selectedMeal) {
+
+        data.meals.forEach(meals => {
+            if (meals.strMeal === selectedMeal) {
                 const previousInfo = `
-                    <img id="item-image" src="${data.meals[i].strMealThumb}">
-                    <h3 id="item-title" class="meal-title">${data.meals[i].strMeal}</h3>
+                    <img id="item-image" src="${meals.strMealThumb}">
+                    <h3 id="item-title" class="meal-title">${meals.strMeal}</h3>
                     <h4>---Ingredient---</h4>
                 `;
 
@@ -85,17 +85,18 @@ const makeDisplay = data => {
 
                 const ul = document.createElement('ul');
                 const detailsInfo = `
-                    <li>${data.meals[i].strIngredient1}</li><br>
-                    <li>${data.meals[i].strIngredient2}</li><br>
-                    <li>${data.meals[i].strIngredient3}</li><br>
-                    <li>${data.meals[i].strIngredient4}</li><br>
-                    <li>${data.meals[i].strIngredient5}</li><br>
-                    <li>${data.meals[i].strIngredient6}</li><br>
-                    <li>${data.meals[i].strIngredient7}</li><br>
-                    <li>${data.meals[i].strIngredient8}</li><br>
-
+                    <li>${meals.strIngredient1}</li><br>
+                    <li>${meals.strIngredient2}</li><br>
+                    <li>${meals.strIngredient3}</li><br>
+                    <li>${meals.strIngredient4}</li><br>
+                    <li>${meals.strIngredient5}</li><br>
+                    <li>${meals.strIngredient6}</li><br>
+                    <li>${meals.strIngredient7}</li><br>
+                    <li>${meals.strIngredient8}</li><br>
+        
                     <button id="removeBtn" class="btn btn-warning remove-btn">Ok</button>
                 `;
+
                 ul.innerHTML = detailsInfo;
                 parentDiv.appendChild(ul);
 
@@ -105,9 +106,8 @@ const makeDisplay = data => {
                     const displayDetails = document.getElementById('display-details');
                     displayDetails.style.display = 'none';
                 })
-                break;
             }
-        }
+        })
     }
 }
 
