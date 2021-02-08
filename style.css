@@ -9,7 +9,7 @@ body{
 }
 
 .nav-content h3{
-    color: tomato;
+    color: orange;
     font-weight: 700;
 }
 
@@ -35,7 +35,7 @@ body{
     width: 400px;
 }
 
-.meal-title{
+.meals-title{
     font-size: 20px;
     text-align: center;
     font-family: cursive;
@@ -56,11 +56,20 @@ body{
     box-shadow: 5px 5px 10px gray;
 }
 
-.meal-name img, .display-area img{
+.meal-name img{
     width: 200px;
     height: 190px;
     margin-bottom: 20px;
     border-radius: 10px;
+}
+
+.display-area img{
+    width: 200px;
+    height: 190px;
+    border: 2px solid orange;
+    border-radius: 10px;
+    float: left;
+    margin: 3px;
 }
 
 .error-style{
@@ -91,9 +100,10 @@ body{
 }
 
 .display-area{
-    width: 450px;
-    height: 300px;
+    width: 550px;
+    height: 450px;
     margin-left: 420px;
+    margin-bottom: 20px;
     border: 1px solid gray;
     border-radius: 10px;
     background-color: rgb(52, 98, 199);
@@ -109,15 +119,20 @@ body{
     display: inline-block;
 }
 
-.display-area img{
-    padding: 10px;
-    border-radius: 10px;
-    float: left;
-}
-
 .display-area ul{
     list-style-type: circle;
     float: left;
+}
+
+.display-area li{
+    font-style: italic;
+    color: white;
+}
+
+.display-area h4{
+    text-align: center;
+    text-transform: uppercase;
+    color: orange;
 }
 
 .remove-btn{
@@ -125,5 +140,13 @@ body{
     width: 100px;
     height: 30px;
     padding: 5px;
+    margin-left: 100px;
+}
+
+.meal-title{
+    font-size: 24px;
+    text-align: center;
+    font-family: cursive;
+    color: white;
 }
 

@@ -36,40 +36,30 @@ const makeDisplay = data => {
 
     if (data.meals) {
         const parentDiv = document.getElementById('meal-info');
-        for (let i = 0; i < data.meals.length; i++) {
+
+        data.meals.forEach(meals => {
             const childDiv = document.createElement('div');
             childDiv.className = 'meal-name';
 
             const mealInfo = `
-            <img id="item-image" src="${data.meals[i].strMealThumb}">
-            <h3 id="item-title" class="meal-title">${data.meals[i].strMeal}</h3>
+            <img id="item-image" src="${meals.strMealThumb}">
+            <h3 id="item-title" class="meals-title">${meals.strMeal}</h3>
         `;
             childDiv.innerHTML = mealInfo;
             parentDiv.appendChild(childDiv);
 
             document.getElementById('input-meal').value = "";
-        }
+        });
+        
         const errorArea = document.getElementById('error-area');
         errorArea.style.display = "none";
-        //const countValue = lengthCount(data.meals);
     }
     else {
         document.getElementById('error-text').innerText = "No item found";
         document.getElementById('input-meal').value = "";
         const errorArea = document.getElementById('error-area');
         errorArea.style.display = "block";
-        // for (let i = 0; i < countValue; i++) {
-        //     let h3 = document.getElementById('item-title');
-        //     h3.remove();
-        //     console.log(5);
-        // }
     }
-
-    // function lengthCount(value){
-    //     let item = value.length;
-    //     console.log(item);
-    //     return item;
-    // }
 
     const mealInfo = document.getElementById('meal-info');
     mealInfo.addEventListener('click', (event) => {
@@ -82,11 +72,13 @@ const makeDisplay = data => {
 
     const showDetails = (data, selectedMeal) => {
         const parentDiv = document.getElementById('display-details');
+        
         for (let i = 0; i < data.meals.length; i++) {
             if (data.meals[i].strMeal === selectedMeal) {
                 const previousInfo = `
                     <img id="item-image" src="${data.meals[i].strMealThumb}">
                     <h3 id="item-title" class="meal-title">${data.meals[i].strMeal}</h3>
+                    <h4>---Ingredient---</h4>
                 `;
 
                 parentDiv.innerHTML = previousInfo;
