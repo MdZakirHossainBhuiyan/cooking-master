@@ -1,8 +1,11 @@
+
+//take input from user
 document.getElementById('submit-btn').addEventListener('click', () => {
     const inputValue = document.getElementById('input-meal').value;
     getMealData(inputValue);
 })
 
+//this function for display meal name in placeholder
 function setPlaceholder() {
     fetch('https://www.themealdb.com/api/json/v1/1/random.php')
         .then(response => response.json())
@@ -14,6 +17,7 @@ function setPlaceholder() {
 setInterval(() => {
     setPlaceholder();
 }, 2000);
+
 
 const getMealData = inputValue => {
     if (inputValue.length > 1) {
