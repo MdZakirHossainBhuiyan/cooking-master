@@ -7,7 +7,7 @@ function setPlaceholder() {
     fetch('https://www.themealdb.com/api/json/v1/1/random.php')
         .then(response => response.json())
         .then(data => {
-            document.getElementById('input-meal').placeholder = "Search " + data.meals[0].strArea + " Meal";
+            document.getElementById('input-meal').placeholder = "Search " + data.meals[0].strMeal + " Meal";
         })
 }
 
@@ -16,13 +16,23 @@ setInterval(() => {
 }, 2000);
 
 const getMealData = inputValue => {
-    const url = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${inputValue}`;
-    fetch(url)
-        .then(response => response.json())
-        .then(data => makeDisplay(data, inputValue))
+    if(inputValue.length > 1){
+        const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${inputValue}`;
+        getData(url);
+    }
+    else if(inputValue.length === 1){
+        const url = `https://www.themealdb.com/api/json/v1/1/search.php?f=${inputValue}`;
+        getData(url);
+    }
 }
 
-const makeDisplay = (data, inputValue) => {
+const getData = url => {
+        fetch(url)
+            .then(response => response.json())
+            .then(data => makeDisplay(data))
+    }
+
+const makeDisplay = data => {
 
     if (data.meals) {
         const parentDiv = document.getElementById('meal-info');
@@ -44,7 +54,7 @@ const makeDisplay = (data, inputValue) => {
         //const countValue = lengthCount(data.meals);
     }
     else {
-        document.getElementById('error-text').innerText = "No item found for " + "'" + inputValue + "'";
+        document.getElementById('error-text').innerText = "No item found";
         document.getElementById('input-meal').value = "";
         const errorArea = document.getElementById('error-area');
         errorArea.style.display = "block";
