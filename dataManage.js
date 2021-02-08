@@ -34,6 +34,14 @@ const getData = url => {
 
 const makeDisplay = data => {
 
+    const removeElements = elements => {
+        elements.forEach(element =>{
+            element.parentNode.removeChild(element);
+        })
+    }
+
+    removeElements(document.querySelectorAll('#meal-info div'));
+
     if (data.meals) {
         const parentDiv = document.getElementById('meal-info');
 
